@@ -17,6 +17,7 @@ Mono_inertial: rosrun ORB_SLAM3 Mono_inertial /YOUR_PATH/ORBvoc.bin /YOUR_PATH/E
 
 
 RGBD-inertial Mode Tested with d435i rosbag: 
+
 https://star-center.shanghaitech.edu.cn/seafile/d/0ea45d1878914077ade5/
 
 

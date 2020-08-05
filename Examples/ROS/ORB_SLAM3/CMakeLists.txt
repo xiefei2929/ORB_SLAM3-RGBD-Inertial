@@ -62,7 +62,14 @@ ${PROJECT_SOURCE_DIR}/../../../lib/libORB_SLAM3.so
 
 )
 
+# Node for RGB-D camera
+rosbuild_add_executable(RGBD
+src/ros_rgbd.cc
+)
 
+target_link_libraries(RGBD
+${LIBS}
+)
 
 # Node for RGBD and inertial camera
 rosbuild_add_executable(RGBD_inertial

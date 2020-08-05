@@ -9,6 +9,8 @@ Modified the loading vocabulary in a faster binary way.
 
 Command
 
+RGBD: rosrun ORB_SLAM3 RGBD /YOUR_PATH/ORBvoc.bin /YOUR_PATH/Myd435i.yaml
+
 RGBD_inertial: rosrun ORB_SLAM3 RGBD_inertial /YOUR_PATH/ORBvoc.bin /YOUR_PATH/Myd435i.yaml
 
 Stereo_inertial: rosrun ORB_SLAM3 Stereo_inertial /YOUR_PATH/ORBvoc.bin /YOUR_PATH/EuRoC.yaml

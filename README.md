@@ -1,4 +1,12 @@
 # ORB_SLAM3-RGBD-Inertial
+2020-10-26
+
+According to ORB_SLAM3, the ROS interface of RGBD-inertial mode is rewritten to avoid queue congestion. The parameter file of Kinect for azure is provided.
+
+依据ORB_SLAM3重写了RGBD-IMU的ROS接口，避免出现队列拥塞，提供了Kinect for Azure的参数文件
+
+2020-8-5
+
 RGBD-inertial mode and its ROS interface was added to ORB_SLAM3.
 
 ROS interfaces Mono_inertial and Stereo_inertial were provided.

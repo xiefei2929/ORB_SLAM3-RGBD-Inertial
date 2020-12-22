@@ -36,6 +36,8 @@
 
 using namespace std;
 
+float shift = 0;
+
 class ImuGrabber
 {
 public:
@@ -98,6 +100,15 @@ int main(int argc, char **argv)
   ImuGrabber imugb;
   ImageGrabber igb(&SLAM,&imugb,sbRect == "true",bEqual);
   
+  cv::FileStorage fsSettings(argv[2], cv::FileStorage::READ);
+  if(!fsSettings.isOpened())
+  {
+      cerr << "ERROR: Wrong path to settings" << endl;
+      return -1;
+  }
+
+  shift = fsSettings["IMU.shift"];
+
   // Maximum delay, 5 seconds
   ros::Subscriber sub_imu = n.subscribe("/imu", 1000, &ImuGrabber::GrabImu, &imugb); 
   ros::Subscriber sub_img_rgb = n.subscribe("/rgb/image_raw", 100, &ImageGrabber::GrabImageRgb,&igb);
@@ -200,7 +211,7 @@ void ImageGrabber::SyncWithImu()
       {
         // Load imu measurements from buffer
         vImuMeas.clear();
-        while(!mpImuGb->imuBuf.empty() && mpImuGb->imuBuf.front()->header.stamp.toSec()<=tImRgb)
+        while(!mpImuGb->imuBuf.empty() && mpImuGb->imuBuf.front()->header.stamp.toSec()<=tImRgb+shift)
         {
           double t = mpImuGb->imuBuf.front()->header.stamp.toSec();
           cv::Point3f acc(mpImuGb->imuBuf.front()->linear_acceleration.x, mpImuGb->imuBuf.front()->linear_acceleration.y, mpImuGb->imuBuf.front()->linear_acceleration.z);

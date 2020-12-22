@@ -1,4 +1,21 @@
 # ORB_SLAM3-RGBD-Inertial
+2020-12-22
+
+Add parameter IMU.shift  to correct the time shift between IMU and camera, and record a rosbag of Kinect for Azure for test.
+
+添加时间差参数项校正IMU与相机的时间差，录制Kinect for Azure的rosbag以供测试
+
+使用方法/How to use：
+
+链接: https://pan.baidu.com/s/1MoQn6SJUp5hYA2HcJ9a5fw  密码: 5s8q
+
+rosbag decompress *.bag
+
+rosrun ORB_SLAM3 RGBD_inertial Vocabulary/ORBvoc.bin Examples/ROS/ORB_SLAM3/MyK4A.yaml
+
+rosbag play orb3_05.bag 
+
+
 2020-10-26
 
 According to ORB_SLAM3, the ROS interface of RGBD-inertial mode is rewritten to avoid queue congestion. The parameter file of Kinect for azure is provided.
